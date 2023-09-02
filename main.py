@@ -12,7 +12,7 @@ test_db_params = DbParams("test_task_db", "postgres", "4545qzqz", "localhost", "
 docker_db_params = DbParams("test_task_db", "postgres", "password", "postgres-sql", "5432")
 
 # prod: bool отвечает за то какая база выбрана, перед созданием образа docker необходимо установить в True
-prod = True
+prod = False
 if prod:
     engine = create_engine(
         f"postgresql://{docker_db_params.user}:{docker_db_params.password}@{docker_db_params.host}:{docker_db_params.port}/{docker_db_params.database}")
