@@ -1,0 +1,31 @@
+create table public.people
+(
+    Blank int,
+    ID_Article int primary key,
+    DOI text not null,
+    ID_Group int unique,
+    ID_SubGroup float unique,
+    Control_Experimental varchar(255),
+    ID_Disease int not null,
+    ID_Drug int,
+    IntakePeriod varchar(255),
+    ID_Additive int,
+    ID_Diet int,
+    ID_Activity int,
+    Physique_Level varchar(255),
+    Sex varchar(255),
+    Age_Min float,
+    Age_Max float,
+    Physique_stage varchar(255),
+    Weight_Min float,
+    Weight_Max float,
+    BMI_Min float,
+    BMI_Max float,
+    Country varchar(255),
+    Alcohol varchar(255),
+    Smoking varchar(255),
+    Pregnancy_Lactation varchar(255),
+    Additional_information text,
+    Author varchar(255)
+);
+

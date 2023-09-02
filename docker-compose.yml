@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  postgres-sql:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test_task_db
+    volumes:
+      - ./postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - backend
+
+  liquibase-migrations:
+    image: liquibase/liquibase:4.18
+    depends_on:
+      - postgres-sql
+    command:
+      - --hub-mode=off
+      - --changelog-file=master.xml
+      - --driver=org.postgresql.Driver
+      - --url=jdbc:postgresql://postgres-sql:5432/test_task_db
+      - --username=postgres
+      - --password=password
+      - update
+    volumes:
+      - ./migrations:/liquibase/changelog
+    networks:
+      - backend
+
+  test-task:
+    image: xxanadd/test_task
+    depends_on:
+      - postgres-sql
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+
+networks:
+  backend:

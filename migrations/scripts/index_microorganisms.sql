@@ -1,0 +1,1 @@
+create index if not exists taxonname_idx on microorganisms (taxonname);
