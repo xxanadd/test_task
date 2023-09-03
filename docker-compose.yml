@@ -17,6 +17,7 @@ services:
 
   liquibase-migrations:
     image: liquibase/liquibase:4.18
+    restart: on-failure
     depends_on:
       - postgres-sql
     command:

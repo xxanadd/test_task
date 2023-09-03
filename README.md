@@ -8,8 +8,8 @@
 Все доступные ручки:
 - /add/csv create_table_from_csv
 - /add/str/{table_name} create_table_from_str
-- /get/{taxonname} get_data
-- /get-all get_all_data
+- /get/{taxonname} get_data **_(работает по итоговой таблице)_**
+- /get-all get_all_data **_(работает по итоговой таблице)_**
 - /people/get/{id} get_from_people
 - /microorganisms/get/{id} get_from_microorganisms
 - /additives/get/{id} get_from_additives
